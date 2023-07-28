@@ -22,6 +22,48 @@ METALS = [
 ]
 
 def get_all_metals():
+    # Open a connection to the database
+    with sqlite3.connect("./kneel.sqlite3") as conn:
+
+        # Just use these. It's a Black Box.
+        conn.row_factory = sqlite3.Row
+        db_cursor = conn.cursor()
+        # Write the SQL query to get the information you want
+        db_cursor.execute("""
+        SELECT
+            m.id,
+            m.metal,
+            m.price
+        FROM `Metal` m
+        """)
+        # Initialize an empty list to hold all animal representations
+        metals = []
+        # Convert rows of data into a Python list
+        dataset = db_cursor.fetchall()
+
+    for row in dataset:
+    # Create a Metal instance from the current row
+        metal = Metal(row['id'], row['metal'], row['price'])
+
+    # Add the dictionary representation of the animal to the list
+        metals.append(metal.__dict__)
+
+    return metals
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     return METALS
 
 # Function with a single parameter

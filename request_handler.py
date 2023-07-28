@@ -3,7 +3,7 @@ from urllib.parse import urlparse, parse_qs
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from views import get_all_styles, get_single_style, create_style
 from views import get_all_sizes, get_single_size, create_size
-from views import get_all_orders, get_single_order, create_order, delete_order, 
+from views import get_all_orders, get_single_order, create_order, delete_order
 from views import get_all_metals, get_single_metal, create_metal, update_metal
 
 
